@@ -46,17 +46,76 @@ function validatecompForm(event) {
         return false;
     }
 
-    console.log("Full Name:", globalFullNameemp);
-    console.log("Email:", globalEmailemp);
-    console.log("Password:", globalPasswordemp);
-    console.log("Phone number:", phonenumberemp);
-    console.log("Home Address:", youraddressemp);
-    console.log("Country:", countryemp);
+    
 
     registerEmployee();
 }
+// function registerEmployee() {
+//     // Get values from input fields
+//     phonenumberemp = document.getElementById("phonenumber")?.value?.trim();
+//     youraddressemp = document.getElementById("Youraddress")?.value?.trim();
+//     countryemp = document.getElementById("country")?.value?.trim();
+
+//     // Check if global variables are defined
+//     if (!globalFullNameemp || !globalEmailemp || !globalPasswordemp ||
+//         !phonenumberemp || !youraddressemp || !countryemp) {
+//         alert("All fields are required.");
+//         return; // Stop execution if any field is missing
+//     }
+
+//     const employeeData = {
+//         full_name: globalFullNameemp,
+//         email: globalEmailemp,
+//         password: globalPasswordemp,
+//         phone_number: phonenumberemp,
+//         house_address: youraddressemp,
+//         country: countryemp
+//     };
+
+//     console.log("Sending Data:", JSON.stringify({ employeeData })); // Debugging log
+
+//     fetch('/register-employee', {
+//         method: 'POST',
+//         headers: { 'Content-Type': 'application/json' },
+//         body: JSON.stringify({ employeeData }),
+//     })
+//     .then(response => {
+//         console.log("Raw Response:", response); // Debugging log
+//         if (response.status === 201 || response.ok) {  // Handle 201 properly
+//             return response.json();
+//         } 
+//         throw new Error(`HTTP Error! Status: ${response.status}`);
+//     })
+//     .then(result => {
+//         console.log("Response Data:", result); // Debugging log
+//         if (result.exists) {
+//             alert('User already exists');
+//         } else if (result.success) {
+//             alert('Account created successfully');
+//         } else {
+//             alert(result.message || 'Something went wrong. Please try again.');
+//         }
+//     })
+//     .catch(error => {
+//         console.error('Error:', error);
+//         alert('User Already Exists !!!.');
+//     });
+    
+// }
 
 function registerEmployee() {
+    // Get values from input fields
+    phonenumberemp = document.getElementById("phonenumber")?.value?.trim();
+    youraddressemp = document.getElementById("Youraddress")?.value?.trim();
+    countryemp = document.getElementById("country")?.value?.trim();
+
+    // Check if global variables are defined
+    if (!globalFullNameemp || !globalEmailemp || !globalPasswordemp ||
+        !phonenumberemp || !youraddressemp || !countryemp) {
+        alert("All fields are required.");
+        return; // Stop execution if any field is missing
+    }
+
     const employeeData = {
         full_name: globalFullNameemp,
         email: globalEmailemp,
@@ -66,26 +125,29 @@ function registerEmployee() {
         country: countryemp
     };
 
-    fetch("/callbacks/register-employee/", {
-        method: "POST",
-        headers: {
-            "Content-Type": "application/json"
-        },
-        body: JSON.stringify(employeeData)
+    fetch('/register-employee', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({ employeeData }),
     })
-    .then(response => response.json())
-    .then(data => {
-        if (data.success) {
-            alert("✅ Employee registered successfully!");
+    .then(response => {
+        if (response.status === 200) {
+            alert('Account created successfully');
+            window.location.href = '/login'; // Redirect to /login
+        } else if (response.status === 400) {
+            alert('User already exists');
         } else {
-            alert("❌ Error: " + data.message);
+            alert('Something went wrong. Please try again.');
         }
     })
     .catch(error => {
-        console.error("Error:", error);
-        alert("❌ Failed to register. Please try again later.");
+        console.error('Error:', error);
+        alert('An error occurred. Please try again.');
     });
 }
+
+
+
 
 function moveto_employeecont() {
     const joinsection2 = document.getElementById("joinussect2");

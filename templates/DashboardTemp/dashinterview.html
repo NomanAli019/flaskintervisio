@@ -1,8 +1,5 @@
-{% include "dashboard-userpages/dashheader.html" %}
-{% load static %}
-<!-- Begin Page Content -->
+{% include "DashboardTemp/dashheader.html" %}
 
-  <!-- Begin Page Content -->
   <div class="container-fluid">
 
     <div class="row mt-5">
@@ -23,7 +20,7 @@
 
             <div class="checklist">
                 <div class="text-center">
-                    <img src="{% static 'dashboard/images/10.png' %}" id="micIndicator" class="mic-animation" alt="">
+                    <img src="{{ url_for('static', filename='dashboard/images/10.png') }}" id="micIndicator" class="mic-animation" alt="">
                 </div>
                 <div class="checklist_in_sec">
                     <h5 class="mb-3">Interview Checklist</h5>
@@ -47,72 +44,4 @@
 <!-- /.container-fluid -->
 </div>
 
-{% include "dashboard-userpages/dashfooter.html" %}
-<!-- End of Main Content -->
-
-            {% comment %} <!-- Footer -->
-            <footer class="sticky-footer bg-white">
-                <div class="container my-auto">
-                    <div class="copyright text-center my-auto">
-                        <span>Copyright &copy; DASHBOARD 2025</span>
-                    </div>
-                </div>
-            </footer>
-            <!-- End of Footer -->
-
-        </div>
-        <!-- End of Content Wrapper -->
-
-    </div>
-    <!-- End of Page Wrapper -->
-
-    <!-- Scroll to Top Button-->
-    <a class="scroll-to-top rounded" href="#page-top">
-        <i class="fas fa-angle-up"></i>
-    </a>
-
-    <!-- Logout Modal-->
-    <div class="modal fade" id="logoutModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
-        aria-hidden="true">
-        <div class="modal-dialog" role="document">
-            <div class="modal-content">
-                <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ready to Leave?</h5>
-                    <button class="close" type="button" data-dismiss="modal" aria-label="Close">
-                        <span aria-hidden="true">×</span>
-                    </button>
-                </div>
-                <div class="modal-body">Select "Logout" below if you are ready to end your current session.</div>
-                <div class="modal-footer">
-                    <button class="btn btn-secondary" type="button" data-dismiss="modal">Cancel</button>
-                    <a class="btn btn-primary" href="login.html">Logout</a>
-                </div>
-            </div>
-        </div>
-    </div>
-
-    <!-- Bootstrap core JavaScript-->
-    <script src="{% static 'dashboard/Js/dashinterview.js' %}"></script>
-    <script src="{% static 'dashboard/vendor/jquery/jquery.min.js' %}"></script>
-    <script src="{% static 'dashboard/vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
-
-    <!-- Core plugin JavaScript-->
-    <script src="{% static 'dashboard/vendor/jquery-easing/jquery.easing.min.js' %}"></script>
-
-    <!-- Custom scripts for all pages-->
-    <script src="{% static 'dashboard/Js/sb-admin-2.min.js' %}"></script>
-    <!-- <script src="js/sb-admin-2.js"></script> -->
-
-    <!-- Page level plugins -->
-    <script src="{% static 'dashboard/vendor/chart.js/Chart.min.js' %}"></script>
-
-    <!-- Page level custom scripts -->
-    <script src="{% static 'dashboard/Js/demo/chart-area-demo.js' %}"></script>
-    <script src="{% static 'dashboard/Js/demo/chart-pie-demo.js' %}"></script>
-    <script>
-
-    </script>
-
-</body>
-
-</html> {% endcomment %}
+{% include "DashboardTemp/dashfooter.html" %}

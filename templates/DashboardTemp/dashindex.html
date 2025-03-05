@@ -1,5 +1,5 @@
-{% include "dashboard-userpages/dashheader.html" %}
-{% load static %}
+{% include "DashboardTemp/dashheader.html" %}
+
 <!-- Begin Page Content -->
   <div class="container-fluid">
 
@@ -91,127 +91,7 @@
         </div>
     </div>
 
-    <!-- Content Row -->
- 
-    {% comment %} <div class="row mt-5">
-
-
-
-        <!-- Pie Chart -->
-        <div class="col-xl-4 col-lg-5">
-            <div class="card  mb-4">
-                <!-- Card Header - Dropdown -->
-                <div
-                    class="card-header py-3 d-flex flex-row align-items-center justify-content-between">
-                    <h6 class="m-0 font-weight-bold text-primary">Revenue Sources</h6>
-
-                </div>
-                <!-- Card Body -->
-                <div class="card-body">
-                    <div class="chart-pie pt-4 pb-2">
-                        <canvas id="myPieChart"></canvas>
-                    </div>
-                    <div class="mt-4 text-center small">
-                        <span class="mr-2">
-                            <i class="fas fa-circle " style="color: #000000;"></i> 542
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle" style="color: #FF9966;"></i> 225
-                        </span>
-                        <span class="mr-2">
-                            <i class="fas fa-circle " style="color: #A3DAE5;"></i> 452
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <!--  Status Table -->
-        <div class="col-xl-8 col-lg-7">
-            <div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <h4 class="mb-3">Recent Job Posts</h4>
-                    </div>
-                    <div class="col-md-6 d-flex justify-content-end">
-                        <div class="mb-3">
-                            <button class="filter-btn "
-                                onclick="filterTable('today', this)">Today</button>
-                            <button class="filter-btn"
-                                onclick="filterTable('weekly', this)">Weekly</button>
-                            <button class="filter-btn active"
-                                onclick="filterTable('monthly', this)">Monthly</button>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="table-container">
-                    <table class="table text-center">
-                        <thead class="table-light thead">
-                            <tr>
-                                <th>Job Title</th>
-                                <th>Category</th>
-                                <th>Openings</th>
-                                <th>Applications</th>
-                                <th>Status</th>
-                            </tr>
-                        </thead>
-                        <tbody>
-                            <tr data-filter="today">
-                                <td>UI UX Designer</td>
-                                <td>Full Time</td>
-                                <td>12</td>
-                                <td>135</td>
-                                <td><span class="status-active">Active</span></td>
-                            </tr>
-                            <tr data-filter="today">
-                                <td>Full Stack Dev</td>
-                                <td>Full Time</td>
-                                <td>08</td>
-                                <td>100</td>
-                                <td><span class="status-inactive">Inactive</span></td>
-                            </tr>
-                            <tr data-filter="weekly">
-                                <td>DevOps</td>
-                                <td>Internship</td>
-                                <td>12</td>
-                                <td>05</td>
-                                <td><span class="status-active">Active</span></td>
-                            </tr>
-                            <tr data-filter="monthly">
-                                <td>Android Dev</td>
-                                <td>Full Time</td>
-                                <td>04</td>
-                                <td>45</td>
-                                <td><span class="status-active">Active</span></td>
-                            </tr>
-                            <tr data-filter="weekly">
-                                <td>IOS Developer</td>
-                                <td>Full Time</td>
-                                <td>18</td>
-                                <td>96</td>
-                                <td><span class="status-inactive">Inactive</span></td>
-                            </tr>
-                            <tr data-filter="monthly">
-                                <td>Data Scientist</td>
-                                <td>Part Time</td>
-                                <td>05</td>
-                                <td>60</td>
-                                <td><span class="status-active">Active</span></td>
-                            </tr>
-                            <tr data-filter="weekly">
-                                <td>Backend Engineer</td>
-                                <td>Full Time</td>
-                                <td>10</td>
-                                <td>90</td>
-                                <td><span class="status-inactive">Inactive</span></td>
-                            </tr>
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>  {% endcomment %}
-
+   
 
     <!-- Area Chart -->
     <div class="row">
@@ -252,4 +132,4 @@
 </div>
 <!-- End of Main Content -->
 
-{% include "dashboard-userpages/dashfooter.html" %}
+{% include "DashboardTemp/dashfooter.html" %}
