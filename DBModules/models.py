@@ -19,6 +19,29 @@ class Employee(db.Model):
 
     def __repr__(self):
         return f"<Employee {self.full_name}>"
+    
+class EmployeePortfolioData(db.Model):
+    employee_portid = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'), nullable=False)
+    job_acquired = db.Column(db.String(100), nullable=False)
+    total_attempts = db.Column(db.Integer, nullable=False, default=0)
+    pass_attempts = db.Column(db.Integer, nullable=False, default=0)
+    losing_attempts = db.Column(db.Integer, nullable=False, default=0)
+    created_at = db.Column(db.DateTime, default=db.func.current_timestamp())
+
+    def __repr__(self):
+        return f"<PortfolioData EmployeeID: {self.employee_id}, Job Acquired: {self.job_acquired}>"
+
+class EmployeeResumes(db.Model):
+    employee_res_id = db.Column(db.Integer, primary_key=True, autoincrement=True)
+    employee_id = db.Column(db.Integer, db.ForeignKey('employee.id'), nullable=False)
+    employee_resume_path = db.Column(db.String(255), nullable=False)
+
+
+    def __repr__(self):
+        return f"<EmployeeResumes {self.employee_resume_path}>"
+
+
 
 # Run this to create tables only once
 if __name__ == '__main__':

@@ -1,4 +1,4 @@
-from flask import Blueprint, request, jsonify
+from flask import Blueprint, request, jsonify , session , make_response , redirect , url_for
 from DbOperation.employeeOp import EmployeeOperations
 
 register_user = Blueprint('register_user', __name__)
@@ -31,3 +31,17 @@ def register_emp():
     except Exception as e:
         print("Error:", str(e))  # Debugging log
         return jsonify({"success": False, "message": f"Error: {str(e)}"}), 500
+
+@register_user.route('/logout')
+def logout_user():
+    session.clear()
+    
+    # Create a response object
+    response = make_response(redirect(url_for('main_pages.login')))
+    
+    # Set headers to prevent the page from being cached
+    response.headers['Cache-Control'] = 'no-store, no-cache, must-revalidate, max-age=0'
+    response.headers['Pragma'] = 'no-cache'  # Older HTTP/1.0 caches
+    response.headers['Expires'] = '0'  # Make sure the page expires immediately
+    
+    return response
