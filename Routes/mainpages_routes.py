@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session, redirect, url_for
+from flask import Blueprint, render_template, session, redirect, url_for , sessions
 main_pages = Blueprint('main_pages', __name__)
 
 @main_pages.route('/')
@@ -11,4 +11,9 @@ def join_us():
 
 @main_pages.route('/login')
 def login():
-    return render_template('homepagesTemp/login.html')
+    user_data = session.get('empuser_data')
+    
+    if user_data:
+        return redirect(url_for('dashboard_pages.dashHome'))
+    else:
+        return render_template('homepagesTemp/login.html')

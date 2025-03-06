@@ -31,6 +31,16 @@ class EmployeeOperations:
                 return True
             else:
                 return False
+            
+    @staticmethod
+    def verify_user(email, password):
+        with app.app_context():
+            user = Employee.query.filter_by(email=email, password=password).first()
+            if user:
+                return user  # Return the full user object instead of just True
+            return None  # Return None if no matching user is found
+
+
 
     @staticmethod
     def delete_user(email):

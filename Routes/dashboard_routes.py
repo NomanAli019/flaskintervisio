@@ -1,4 +1,4 @@
-from flask import Blueprint, render_template, session, redirect, url_for
+from flask import Blueprint, render_template, session, redirect, url_for , sessions
 dashboard_pages = Blueprint('dashboard_pages', __name__)
 
 @dashboard_pages.route('/dashhome')
